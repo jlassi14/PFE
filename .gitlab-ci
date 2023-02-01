@@ -1,0 +1,28 @@
+image: node:latest
+
+stages:
+  - build
+  - test
+  - deploy
+
+build:
+  stage: build
+  script:
+    - npm install
+    - npm run build
+    - echo "building Success..."
+    - write-host "Hello world"
+
+   tags:
+    - windows runner
+
+test:
+  stage: test
+  script:
+    - npm test
+    - echo "Testing Success..."
+
+deploy:
+  stage: deploy
+  script:
+    - echo "Deploying to production..."
